@@ -27,7 +27,7 @@ tokens = """
   --serie-1: #6aa0ec; --serie-2: #eba25a; color-scheme: dark; } }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-family: var(--font-anthropic-sans); font-size: 14px; }
-#dash-root { padding: clamp(16px, 3vw, 32px); max-width: 1800px; margin-inline: auto; }
+#dash-root { padding: clamp(12px, 2vw, 24px); }
 .nf-atualizado { font-size: 12px; color: var(--color-fg-muted); margin: 0; }
 """
 

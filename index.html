@@ -22,7 +22,7 @@
   --serie-1: #6aa0ec; --serie-2: #eba25a; color-scheme: dark; } }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-family: var(--font-anthropic-sans); font-size: 14px; }
-#dash-root { padding: clamp(16px, 3vw, 32px); max-width: 1800px; margin-inline: auto; }
+#dash-root { padding: clamp(12px, 2vw, 24px); }
 .nf-atualizado { font-size: 12px; color: var(--color-fg-muted); margin: 0; }
 </style>
 <style>
@@ -78,16 +78,20 @@ body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-fami
 #dash-root .nf-tip .t { color: var(--cds-text-secondary); margin-bottom: 2px; }
 #dash-root .nf-tip .r { display: flex; align-items: center; gap: var(--cds-gap-xs); }
 #dash-root .nf-tablewrap { overflow: auto; max-height: 70vh; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); }
-#dash-root .nf table { border-collapse: separate; border-spacing: 0; width: 100%; font-size: var(--cds-font-size-body); font-variant-numeric: tabular-nums; }
-#dash-root .nf th, #dash-root .nf td { padding: 7px 10px; min-width: 3.4rem; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--color-border-line); }
+#dash-root .nf table { border-collapse: separate; border-spacing: 0; width: 100%; font-size: 13px; font-variant-numeric: tabular-nums; }
+#dash-root .nf th, #dash-root .nf td { padding: 6px 5px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--color-border-line); }
 #dash-root .nf thead th { position: sticky; top: 0; background: var(--color-panel); z-index: 1; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); }
 #dash-root .nf thead tr.nf-years th { border-bottom: 0; color: var(--color-fg); }
 #dash-root .nf thead tr + tr th { top: 36px; }
 #dash-root .nf th button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
-#dash-root .nf th[aria-sort] button::after { content: " ↕"; opacity: .35; }
+#dash-root .nf th[aria-sort] button::after { content: ""; }
+#dash-root .nf th[aria-sort]:hover button::after { content: " ↕"; opacity: .35; }
 #dash-root .nf th[aria-sort=ascending] button::after { content: " ↑"; opacity: 1; }
 #dash-root .nf th[aria-sort=descending] button::after { content: " ↓"; opacity: 1; }
-#dash-root .nf .nf-name { text-align: left; position: sticky; left: 0; background: var(--color-panel); z-index: 1; max-width: 21rem; overflow: hidden; text-overflow: ellipsis; }
+#dash-root .nf .nf-name { text-align: left; position: sticky; left: 0; background: var(--color-panel); z-index: 1; width: 15rem; min-width: 15rem; max-width: 15rem; overflow: hidden; text-overflow: ellipsis; }
+#dash-root .nf .nf-part { position: sticky; left: 15rem; background: var(--color-panel); z-index: 1; width: 3.6rem; min-width: 3.6rem; border-right: 1px solid var(--color-fg-muted); }
+#dash-root .nf thead .nf-part { z-index: 3; }
+#dash-root .nf tbody tr:hover td.nf-name, #dash-root .nf tbody tr:hover td.nf-part { box-shadow: none; }
 #dash-root .nf thead .nf-name { z-index: 3; }
 #dash-root .nf .nf-cnae { color: var(--color-fg-muted); margin-right: 6px; }
 #dash-root .nf .nf-acc { border-left: 1px solid var(--color-border-line); font-weight: 700; color: var(--color-fg); }
@@ -265,9 +269,9 @@ body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-fami
   function heat() {
     const panel = resolve('var(--color-panel)'), up = resolve('var(--nf-hup)'), down = resolve('var(--nf-hdown)');
     const iu = d3.interpolateRgb(panel, up), id = d3.interpolateRgb(panel, down);
-    const t = v => Math.pow(Math.min(Math.abs(v) / 0.25, 1), 0.7) * 0.9;
+    const t = v => Math.pow(Math.min(Math.abs(v) / 0.25, 1), 0.85) * 0.68;
     const fill = v => v == null || isNaN(v) ? 'transparent' : (v >= 0 ? iu : id)(t(v));
-    fill.ink = v => v != null && !isNaN(v) && t(v) > 0.55 ? '#ffffff' : '';
+    fill.ink = v => v != null && !isNaN(v) && t(v) > 0.6 ? '#ffffff' : '';
     return fill;
   }
 
@@ -447,7 +451,7 @@ body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-fami
       th.appendChild(b); tr.appendChild(th); return th;
     };
     const e0 = document.createElement('th'); e0.className = 'nf-name'; e0.colSpan = 1; h1.appendChild(e0);
-    h1.appendChild(document.createElement('th'));
+    const e1 = document.createElement('th'); e1.className = 'nf-part'; h1.appendChild(e1);
     anosVis.forEach(a => {
       const n = cols.filter(c => c.ano === a).length; const th = document.createElement('th');
       th.colSpan = n; th.className = 'nf-ystart'; th.style.textAlign = 'center';
@@ -455,7 +459,7 @@ body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-fami
     });
     const h2 = thead.insertRow();
     sortTh(h2, 'nome', 'Classe CNAE 2.0', 'nf-name', 'nome');
-    sortTh(h2, 'participacao', 'Part.', '', 'participacao');
+    sortTh(h2, 'participacao', 'Part.', 'nf-part', 'participacao');
     cols.forEach(c => sortTh(h2, c.k, c.t, c.acc ? 'nf-acc' : c.first ? 'nf-ystart' : '', c.k));
 
     const tb = table.createTBody();
@@ -467,7 +471,7 @@ body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-fami
       const td = tr.insertCell(); td.className = 'nf-name'; td.title = c ? c.classe : r.nome;
       if (!isTotal) { const s = document.createElement('span'); s.className = 'nf-cnae'; s.textContent = r.cnae; td.appendChild(s); }
       td.appendChild(document.createTextNode(r.nome));
-      tr.insertCell().textContent = isTotal ? '100%' : pct(r.participacao);
+      const tp = tr.insertCell(); tp.className = 'nf-part'; tp.textContent = isTotal ? '100%' : pct(r.participacao);
       cols.forEach(col => {
         const v = r[col.k]; const cell = tr.insertCell();
         cell.textContent = pct(v); cell.style.background = fill(v); cell.style.color = fill.ink(v);
