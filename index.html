@@ -28,17 +28,20 @@ body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-fami
 <style>
 #dash-root .nf { --nf-navy: #1e3559; --nf-blue: #004b8b; --nf-gold: #c69431; --nf-bar: #004b8b; --nf-line: #c69431; --nf-up: #004b8b; --nf-down: #b42318; --nf-h2: #1e3559; }
 #dash-root .nf.nf-dark { --nf-bar: #5b95d6; --nf-line: #e0b45a; --nf-up: #8db9ea; --nf-down: #f2867a; --nf-h2: var(--color-fg); }
-#dash-root .nf-band { background: var(--nf-navy); color: #ffffff; border-radius: var(--cds-radius); border-bottom: 4px solid var(--nf-gold); padding: clamp(1.25rem, 3vw, 2.25rem) clamp(1rem, 3vw, 2.5rem); display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(15rem, 1fr); gap: clamp(1.25rem, 3vw, 2.5rem); align-items: center; }
-#dash-root .nf-band .nf-text { display: flex; flex-direction: column; gap: var(--cds-gap-md); min-width: 0; }
-#dash-root .nf-band .nf-eyebrow { color: var(--nf-gold); font-size: var(--cds-font-size-body); letter-spacing: .06em; text-transform: uppercase; }
-#dash-root .nf-band h1 { color: #ffffff; font-family: var(--font-anthropic-serif); font-weight: 400; font-size: clamp(1.8rem, 1.2rem + 2vw, 2.7rem); line-height: 1.12; margin: 0; text-wrap: balance; }
-#dash-root .nf-band .nf-desc { color: #e3e9f3; margin: 0; max-width: 64ch; line-height: 1.6; font-size: clamp(1rem, .92rem + .25vw, 1.12rem); }
-#dash-root .nf-band .nf-side { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--cds-gap-lg); min-width: 0; }
-#dash-root .nf-band .nf-logo { width: min(100%, 19rem); height: auto; display: block; align-self: center; }
-#dash-root .nf-band .nf-hl { background: rgba(255,255,255,.07); border: 1px solid rgba(198,148,49,.6); border-radius: var(--cds-radius); padding: var(--cds-pad-md) var(--cds-pad-lg); display: flex; flex-direction: column; gap: var(--cds-gap-sm); }
-#dash-root .nf-band .nf-take { color: #ffffff; margin: 0; font-size: var(--cds-font-size-heading); line-height: 1.45; }
-#dash-root .nf-band .nf-note { color: #c3cde0; margin: 0; font-size: var(--cds-font-size-caption); line-height: 1.5; }
-@media (max-width: 760px) { #dash-root .nf-band { grid-template-columns: 1fr; } #dash-root .nf-band .nf-logo { width: 12rem; } }
+#dash-root .nf-band { background: var(--nf-navy); color: #ffffff; border-radius: var(--cds-radius); border-bottom: 4px solid var(--nf-gold); padding: clamp(1.25rem, 3vw, 2.25rem) clamp(1rem, 3vw, 2.5rem); display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(12rem, 1fr); grid-template-areas: "eyebrow eyebrow" "text logo"; column-gap: clamp(1.25rem, 3vw, 2.5rem); row-gap: var(--cds-gap-lg); align-items: center; }
+#dash-root .nf-band .nf-eyebrow { grid-area: eyebrow; justify-self: center; text-align: center; color: var(--nf-gold); font-size: var(--cds-font-size-body); letter-spacing: .06em; text-transform: uppercase; }
+#dash-root .nf-band .nf-eyebrow b { font-weight: 400; font-size: 1.27em; }
+#dash-root .nf-band .nf-text { grid-area: text; display: flex; flex-direction: column; gap: var(--cds-gap-lg); min-width: 0; padding-inline: clamp(0rem, 2vw, 1.5rem); }
+#dash-root .nf-band h1 { color: #ffffff; font-family: var(--font-anthropic-serif); font-weight: 400; font-size: clamp(1.8rem, 1.2rem + 2vw, 2.8rem); line-height: 1.12; margin: 0; text-align: center; text-wrap: balance; }
+#dash-root .nf-band .nf-desc { color: #e3e9f3; margin: 0; line-height: 1.6; font-size: clamp(1rem, .92rem + .25vw, 1.12rem); text-align: justify; }
+#dash-root .nf-band .nf-side { grid-area: logo; display: flex; align-items: center; justify-content: center; min-width: 0; }
+#dash-root .nf-band .nf-logo { width: min(100%, 27rem); height: auto; display: block; }
+@media (max-width: 760px) { #dash-root .nf-band { grid-template-columns: 1fr; grid-template-areas: "logo" "eyebrow" "text"; } #dash-root .nf-band .nf-logo { width: 12rem; } #dash-root .nf-band .nf-desc { text-align: left; } }
+#dash-root .nf-tiles .nf-card { align-items: center; text-align: center; justify-content: center; gap: var(--cds-gap-md); padding: var(--cds-pad-xl) var(--cds-pad-lg); }
+#dash-root .nf-tiles .nf-big { font-size: calc(var(--cds-font-size-title) * 2); }
+#dash-root .nf-tiles .nf-label, #dash-root .nf-tiles .nf-sub { font-size: var(--cds-font-size-body); }
+#dash-root .nf-resumo .nf-take, #dash-root .nf-resumo .nf-note { max-width: none; }
+#dash-root .nf-resumo { display: flex; flex-direction: column; gap: var(--cds-gap-sm); }
 #dash-root .nf-foot { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; line-height: 1.5; max-width: 90ch; }
 #dash-root .nf { display: flex; flex-direction: column; gap: var(--cds-gap-xl); font-family: var(--font-anthropic-sans); }
 #dash-root .nf-head { display: flex; flex-direction: column; gap: var(--cds-gap-sm); }
@@ -107,8 +110,8 @@ body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-fami
 <div id="dash-root">
 <div class="nf">
   <header class="nf-band" id="topo">
+    <div class="nf-eyebrow">Monitor de Vendas · Dados <b>SEFAZ-RS</b> · NFC-e</div>
     <div class="nf-text">
-      <div class="nf-eyebrow">Monitor de Vendas · Dados SEFAZ-RS · NFC-e</div>
       <h1>Monitor de vendas por NFC-e no varejo gaúcho</h1>
       <p class="nf-desc">O Monitor de Vendas por NFC-e divulga a evolução mensal do valor das vendas registradas por meio de documentos fiscais eletrônicos emitidos no Rio Grande do Sul. As informações são obtidas a partir da base da SEFAZ-RS e apresentadas por classes da CNAE 2.0, permitindo acompanhar o desempenho dos diferentes segmentos do varejo ao longo do tempo.</p>
     </div>
@@ -139,6 +142,11 @@ body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-fami
       <div class="nf-sub">classes da CNAE com variação positiva</div>
     </div>
   </section>
+
+  <div class="nf-resumo">
+    <p class="nf-take dash-skeleton" id="nf-take">—</p>
+    <p class="nf-note">Nota: variação nominal do valor vendido em NFC-e em relação ao mesmo mês do ano anterior. Participação calculada sobre o total das 35 classes em 2025.</p>
+  </div>
 
   <section class="nf-card" id="evolucao">
     <div class="nf-cardhead">
