@@ -2,7 +2,8 @@
 #dash-root .nf { --nf-navy: #1e3559; --nf-blue: #004b8b; --nf-gold: #c69431; --nf-bar: #004b8b; --nf-line: #c69431; --nf-up: #004b8b; --nf-down: #b42318; --nf-h2: #1e3559; }
 #dash-root .nf.nf-dark { --nf-bar: #5b95d6; --nf-line: #e0b45a; --nf-up: #8db9ea; --nf-down: #f2867a; --nf-h2: var(--color-fg); }
 #dash-root .nf-band { background: var(--nf-navy); color: #ffffff; border-radius: var(--cds-radius); border-bottom: 4px solid var(--nf-gold); padding: clamp(1.25rem, 3vw, 2.25rem) clamp(1rem, 3vw, 2.5rem); display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(15rem, 1fr); gap: clamp(1.25rem, 3vw, 2.5rem); align-items: center; }
-#dash-root .nf-band .nf-text { display: flex; flex-direction: column; gap: var(--cds-gap-md); min-width: 0; }
+#dash-root .nf-band .nf-text { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--cds-gap-md); min-width: 0; }
+#dash-root .nf-tiles .nf-card { align-items: center; text-align: center; }
 #dash-root .nf-band .nf-eyebrow { color: var(--nf-gold); font-size: var(--cds-font-size-body); letter-spacing: .06em; text-transform: uppercase; }
 #dash-root .nf-band h1 { color: #ffffff; font-family: var(--font-anthropic-serif); font-weight: 400; font-size: clamp(1.8rem, 1.2rem + 2vw, 2.7rem); line-height: 1.12; margin: 0; text-wrap: balance; }
 #dash-root .nf-band .nf-desc { color: #e3e9f3; margin: 0; max-width: 64ch; line-height: 1.6; font-size: clamp(1rem, .92rem + .25vw, 1.12rem); }
@@ -107,7 +108,7 @@
     <div class="nf-card">
       <div class="nf-label">Classes com alta no mês</div>
       <div class="nf-big dash-skeleton"><span data-source="resumo" data-field="classes_em_alta" data-row="0" id="k-up">—</span><span class="nf-sub" style="font-family:var(--font-anthropic-sans);font-size:var(--cds-font-size-heading)"> de <span data-source="resumo" data-field="classes" data-row="0" id="k-n">—</span></span></div>
-      <div class="nf-sub">classes da CNAE com variação positiva</div>
+      <div class="nf-sub">classes com alta sobre o mesmo mês de 2025</div>
     </div>
   </section>
 
