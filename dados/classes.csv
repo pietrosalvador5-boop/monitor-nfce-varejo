@@ -1,0 +1,37 @@
+cnae,nome,classe,participacao_2025
+47113,Hiper e supermercados,"Mercadorias em geral, com predominancia de produtos alimenticios - hipermercados e supermercados",0.35
+47121,Minimercados e mercearias,"Mercadorias em geral, com predominancia de produtos alimenticios - minimercados, mercearias e armazens",0.08
+47130,Lojas de variedades,"Mercadorias em geral, sem predominancia de produtos alimenticios",0.02
+47211,"Padaria, laticínios e doces","Produtos de padaria, laticinio, doces, balas e semelhantes",0.01
+47229,Açougues e peixarias,Carnes e pescados - acougues e peixarias,0.01
+47237,Bebidas,Bebidas,0.01
+47245,Hortifrutigranjeiros,Hortifrutigranjeiros,0.01
+47296,Outros alimentícios,Produtos alimenticios em geral ou especializado em produtos alimenticios nao especificados anteriormente,0.02
+47318,Combustíveis,Combustiveis para veiculos automotores,0.2
+47326,Lubrificantes,Lubrificantes,0.0
+47415,Tintas,Tintas e materiais para pintura,0.0
+47423,Material elétrico,Material eletrico,0.0
+47431,Vidros,Vidros,0.0
+47440,Materiais de construção,"Ferragens, madeira e materiais de construcao",0.03
+47512,Informática,Especializado de equipamentos e suprimentos de informatica,0.0
+47521,Telefonia e comunicação,Especializado de equipamentos de telefonia e comunicacao,0.0
+47539,Eletrodomésticos e áudio/vídeo,Especializado de eletrodomesticos e equipamentos de audio e video,0.01
+47547,Móveis e iluminação,"Especializado de moveis, colchoaria e artigos de iluminacao",0.01
+47555,"Cama, mesa e banho","Especializado de tecidos e artigos de cama, mesa e banho",0.01
+47563,Instrumentos musicais,Especializado de instrumentos musicais e acessorios,0.0
+47571,Peças p/ eletroeletrônicos,"Especializado de pecas e acessorios para aparelhos eletroeletronicos para uso domestico, exceto informatica e comunicacao",0.0
+47598,Outros artigos domésticos,Artigos de uso domestico nao especificados anteriormente,0.01
+47610,Livros e papelaria,"Livros, jornais, revistas e papelaria",0.01
+47628,"Discos, CDs e DVDs","Discos, cds, dvds e fitas",0.0
+47636,Recreativos e esportivos,Artigos recreativos e esportivos,0.01
+47717,Farmácias,Produtos farmaceuticos para uso humano e veterinario,0.1
+47725,Cosméticos e perfumaria,"Cosmeticos, produtos de perfumaria e de higiene pessoal",0.01
+47733,Artigos médicos e ortopédicos,Artigos medicos e ortopedicos,0.0
+47741,Óticas,Artigos de optica,0.01
+47814,Vestuário e acessórios,Artigos do vestuario e acessorios,0.06
+47822,Calçados e artigos de viagem,Calcados e artigos de viagem,0.02
+47831,Joias e relógios,Joias e relogios,0.01
+47849,Gás (GLP),Gas liquefeito de petroleo (glp),0.01
+47857,Artigos usados,Artigos usados,0.0
+47890,Outros produtos novos,Outros produtos novos nao especificados anteriormente,0.02
+0,Total geral,Total geral,1.0
