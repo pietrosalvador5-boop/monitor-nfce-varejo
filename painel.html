@@ -3,12 +3,14 @@
 #dash-root .nf.nf-dark { --nf-bar: #5b95d6; --nf-line: #e0b45a; --nf-up: #8db9ea; --nf-down: #f2867a; --nf-h2: var(--color-fg); }
 #dash-root .nf-band { background: var(--nf-navy); color: #ffffff; border-radius: var(--cds-radius); border-bottom: 4px solid var(--nf-gold); padding: clamp(1.25rem, 3vw, 2.25rem) clamp(1rem, 3vw, 2.5rem); display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(15rem, 1fr); gap: clamp(1.25rem, 3vw, 2.5rem); align-items: center; }
 #dash-root .nf-band .nf-text { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--cds-gap-md); min-width: 0; }
-#dash-root .nf-tiles .nf-card { align-items: center; text-align: center; }
+#dash-root .nf-tiles .nf-card { align-items: center; text-align: center; justify-content: center; padding: var(--cds-pad-xl) var(--cds-pad-lg); }
+#dash-root .nf-tiles .nf-big { font-size: calc(var(--cds-font-size-title) * 1.8); }
+#dash-root .nf-tiles .nf-label, #dash-root .nf-tiles .nf-sub { font-size: var(--cds-font-size-body); }
 #dash-root .nf-band .nf-eyebrow { color: var(--nf-gold); font-size: var(--cds-font-size-body); letter-spacing: .06em; text-transform: uppercase; }
 #dash-root .nf-band h1 { color: #ffffff; font-family: var(--font-anthropic-serif); font-weight: 400; font-size: clamp(1.8rem, 1.2rem + 2vw, 2.7rem); line-height: 1.12; margin: 0; text-wrap: balance; }
-#dash-root .nf-band .nf-desc { color: #e3e9f3; margin: 0; max-width: 64ch; line-height: 1.6; font-size: clamp(1rem, .92rem + .25vw, 1.12rem); }
+#dash-root .nf-band .nf-desc { color: #e3e9f3; margin: 0; max-width: 78ch; line-height: 1.6; font-size: clamp(1rem, .92rem + .25vw, 1.12rem); }
 #dash-root .nf-band .nf-side { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--cds-gap-lg); min-width: 0; }
-#dash-root .nf-band .nf-logo { width: min(100%, 19rem); height: auto; display: block; align-self: center; }
+#dash-root .nf-band .nf-logo { width: min(100%, 23rem); height: auto; display: block; align-self: center; }
 #dash-root .nf-band .nf-hl { background: rgba(255,255,255,.07); border: 1px solid rgba(198,148,49,.6); border-radius: var(--cds-radius); padding: var(--cds-pad-md) var(--cds-pad-lg); display: flex; flex-direction: column; gap: var(--cds-gap-sm); }
 #dash-root .nf-band .nf-take { color: #ffffff; margin: 0; font-size: var(--cds-font-size-heading); line-height: 1.45; }
 #dash-root .nf-band .nf-note { color: #c3cde0; margin: 0; font-size: var(--cds-font-size-caption); line-height: 1.5; }
