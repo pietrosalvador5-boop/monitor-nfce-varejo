@@ -55,7 +55,7 @@
 #dash-root .nf th, #dash-root .nf td { padding: 6px 5px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--color-border-line); }
 #dash-root .nf thead th { position: sticky; top: 0; background: var(--color-panel); z-index: 1; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); }
 #dash-root .nf thead tr.nf-years th { border-bottom: 0; color: var(--color-fg); }
-#dash-root .nf thead tr + tr th { top: 36px; }
+#dash-root .nf thead th[rowspan] { vertical-align: bottom; }
 #dash-root .nf th button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
 #dash-root .nf th[aria-sort] button::after { content: ""; }
 #dash-root .nf th[aria-sort]:hover button::after { content: " ↕"; opacity: .35; }
@@ -397,16 +397,14 @@
       });
       th.appendChild(b); tr.appendChild(th); return th;
     };
-    const e0 = document.createElement('th'); e0.className = 'nf-name'; e0.colSpan = 1; h1.appendChild(e0);
-    const e1 = document.createElement('th'); e1.className = 'nf-part'; h1.appendChild(e1);
+    sortTh(h1, 'nome', 'Classe CNAE 2.0', 'nf-name', 'nome').rowSpan = 2;
+    sortTh(h1, 'participacao', 'Part.', 'nf-part', 'participacao').rowSpan = 2;
     anosVis.forEach(a => {
       const n = cols.filter(c => c.ano === a).length; const th = document.createElement('th');
       th.colSpan = n; th.className = 'nf-ystart'; th.style.textAlign = 'center';
       th.textContent = a + ' / ' + (a - 1); h1.appendChild(th);
     });
     const h2 = thead.insertRow();
-    sortTh(h2, 'nome', 'Classe CNAE 2.0', 'nf-name', 'nome');
-    sortTh(h2, 'participacao', 'Part.', 'nf-part', 'participacao');
     cols.forEach(c => sortTh(h2, c.k, c.t, c.acc ? 'nf-acc' : c.first ? 'nf-ystart' : '', c.k));
 
     const tb = table.createTBody();
@@ -428,6 +426,10 @@
     };
     rows.forEach(r => addRow(r, false));
     if (total) addRow(total, true);
+    // a linha dos meses encosta na dos anos, sem vão
+    const topo = h1.querySelector('.nf-ystart') || h1.lastElementChild;
+    const alt = topo ? topo.offsetHeight : 0;
+    h2.querySelectorAll('th').forEach(th => { th.style.top = alt + 'px'; });
   }
 
   // ---------- ranking ----------
